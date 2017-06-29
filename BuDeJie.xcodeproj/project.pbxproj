@@ -37,6 +37,7 @@
 		1FAF3E911EF3A12600587727 /* LaunchImage-800-Portrait-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF3E8A1EF3A12600587727 /* LaunchImage-800-Portrait-736h@3x.png */; };
 		1FAF3E921EF3A12600587727 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF3E8B1EF3A12600587727 /* LaunchImage.png */; };
 		1FAF3E931EF3A12600587727 /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF3E8C1EF3A12600587727 /* LaunchImage@2x.png */; };
+		1FCC3A821F05381B008AF6B2 /* GVLTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCC3A811F05381B008AF6B2 /* GVLTitleButton.m */; };
 		1FED79AE1EF2AC14000E229A /* UIBarButtonItem+ButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FED79AD1EF2AC14000E229A /* UIBarButtonItem+ButtonItem.m */; };
 		1FED79B11EF2B840000E229A /* GVLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FED79B01EF2B840000E229A /* GVLNavigationController.m */; };
 		1FED79BB1EF2C264000E229A /* GVLSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FED79BA1EF2C264000E229A /* GVLSettingViewController.m */; };
@@ -123,6 +124,8 @@
 		1FAF3E8A1EF3A12600587727 /* LaunchImage-800-Portrait-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-800-Portrait-736h@3x.png"; sourceTree = "<group>"; };
 		1FAF3E8B1EF3A12600587727 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
 		1FAF3E8C1EF3A12600587727 /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x.png"; sourceTree = "<group>"; };
+		1FCC3A801F05381B008AF6B2 /* GVLTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVLTitleButton.h; sourceTree = "<group>"; };
+		1FCC3A811F05381B008AF6B2 /* GVLTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVLTitleButton.m; sourceTree = "<group>"; };
 		1FED79AC1EF2AC14000E229A /* UIBarButtonItem+ButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ButtonItem.h"; sourceTree = "<group>"; };
 		1FED79AD1EF2AC14000E229A /* UIBarButtonItem+ButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ButtonItem.m"; sourceTree = "<group>"; };
 		1FED79AF1EF2B840000E229A /* GVLNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVLNavigationController.h; sourceTree = "<group>"; };
@@ -432,6 +435,8 @@
 		1FF2F48E1EF02DE20034C55B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1FCC3A801F05381B008AF6B2 /* GVLTitleButton.h */,
+				1FCC3A811F05381B008AF6B2 /* GVLTitleButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -839,6 +844,7 @@
 				1F896AD11EF1686300B9B6ED /* GVLTabBarController.m in Sources */,
 				1FEE0B5E1EFAA8D7001A6439 /* GVLSubTagViewController.m in Sources */,
 				1FED79AE1EF2AC14000E229A /* UIBarButtonItem+ButtonItem.m in Sources */,
+				1FCC3A821F05381B008AF6B2 /* GVLTitleButton.m in Sources */,
 				1FEE0B611EFAABA3001A6439 /* GVLSubTagModel.m in Sources */,
 				1F3B53291EFD52460016ACD4 /* GVLTextField.m in Sources */,
 				1FF2F4A31EF02DE20034C55B /* AppDelegate.m in Sources */,
