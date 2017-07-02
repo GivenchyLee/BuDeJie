@@ -30,8 +30,8 @@
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem backButtonItemWithImageName:@"navigationButtonReturn" highlightImageName:@"navigationButtonReturnClick" target:self action:@selector(back)];
         //GVLLog(@"%@", self.interactivePopGestureRecognizer);
         //结果打印如下，并没有清空。--->这个时候如果手势还在，那么可能的原因就是 代理可能会有判断，如果我们自定义了返回按钮，那么就会手势就会失效，虽然它还存在--->为此我们将手势的代理置空，看一下效果。
-        /*<UIScreenEdgePanGestureRecognizer: 0x7ff060419980; state = Possible; delaysTouchesBegan = YES; view = <UILayoutContainerView 0x7ff060417dc0>; target= <(action=handleNavigationTransition:, target=<_UINavigationInteractiveTransition 0x7ff060418f70>)>>
-         */
+        // <UIScreenEdgePanGestureRecognizer: 0x7ff060419980; state = Possible; delaysTouchesBegan = YES; view = <UILayoutContainerView 0x7ff060417dc0>; target= <(action=handleNavigationTransition:, target=<_UINavigationInteractiveTransition 0x7ff060418f70>)>>
+         //
     }
     //这句代码才是真正的跳转
     [super pushViewController:viewController animated:animated];

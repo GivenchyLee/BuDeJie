@@ -10,6 +10,7 @@
 #import "UIView+Frame.h"
 @interface GVLTabBar()
 @property(nonatomic, weak) UIButton *publishButton;
+@property(nonatomic, strong) UIControl *previousClickedTabBarButton;
 @end
 
 @implementation GVLTabBar
@@ -30,8 +31,11 @@
     CGFloat buttonW = self.bounds.size.width/(self.items.count+1);
     CGFloat buttonH = self.bounds.size.height;
     int i = 0;
-    for (UIView *childView in self.subviews) {
+    for (UIControl *childView in self.subviews) {
         if ([childView isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            if (_previousClickedTabBarButton == nil && i == 0) {
+                _previousClickedTabBarButton = childView;
+            }
             if (i == 2) {
                 i = i + 1;
             }
@@ -40,16 +44,18 @@
             childView.frame = frame;
             
             i = i + 1;
+            //GVLLog(@"%@",[childView superclass]);UIControl
+            [childView addTarget:self action:@selector(tabBarCuttonClickAgain:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
     self.publishButton.center = CGPointMake(self.gvl_width*0.5, self.gvl_height*0.5);
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)tabBarCuttonClickAgain:(UIControl *)tabBarButton{
+    if (self.previousClickedTabBarButton == tabBarButton) {
+        //发送通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:GVLTabBarButtonDidAgainClickNotification object:nil];
+    }
+    self.previousClickedTabBarButton = tabBarButton;
 }
-*/
 
 @end

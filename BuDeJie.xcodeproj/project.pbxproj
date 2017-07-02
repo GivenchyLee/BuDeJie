@@ -14,6 +14,12 @@
 		1F3B53291EFD52460016ACD4 /* GVLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B53281EFD52460016ACD4 /* GVLTextField.m */; };
 		1F3B532C1EFD5B2F0016ACD4 /* UITextField+GVLPlaceholderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B532B1EFD5B2F0016ACD4 /* UITextField+GVLPlaceholderColor.m */; };
 		1F45700B1EF24DFC0009E929 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F45700A1EF24DFC0009E929 /* UIView+Frame.m */; };
+		1F49FBB91F088FD100C430E5 /* GVLAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F49FBB81F088FD100C430E5 /* GVLAllViewController.m */; };
+		1F49FBBC1F088FFF00C430E5 /* GVLVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F49FBBB1F088FFF00C430E5 /* GVLVideoViewController.m */; };
+		1F49FBBF1F08901400C430E5 /* GVLVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F49FBBE1F08901400C430E5 /* GVLVoiceViewController.m */; };
+		1F49FBC21F08903800C430E5 /* GVLPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F49FBC11F08903800C430E5 /* GVLPictureViewController.m */; };
+		1F49FBC51F08907300C430E5 /* GVLWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F49FBC41F08907300C430E5 /* GVLWordViewController.m */; };
+		1F49FBCB1F08A9BA00C430E5 /* GVLConstVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F49FBCA1F08A9BA00C430E5 /* GVLConstVariable.m */; };
 		1F5224171F04D476001CACDF /* GVLWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5224151F04D476001CACDF /* GVLWebViewController.m */; };
 		1F5224181F04D476001CACDF /* GVLWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5224161F04D476001CACDF /* GVLWebViewController.xib */; };
 		1F5828C21EFFDEDE006BED06 /* GVLSquareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5828C01EFFDEDE006BED06 /* GVLSquareCell.m */; };
@@ -91,6 +97,18 @@
 		1F4570091EF24DFC0009E929 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		1F45700A1EF24DFC0009E929 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		1F45700C1EF253990009E929 /* BuDeJie.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuDeJie.pch; sourceTree = "<group>"; };
+		1F49FBB71F088FD100C430E5 /* GVLAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVLAllViewController.h; sourceTree = "<group>"; };
+		1F49FBB81F088FD100C430E5 /* GVLAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVLAllViewController.m; sourceTree = "<group>"; };
+		1F49FBBA1F088FFF00C430E5 /* GVLVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVLVideoViewController.h; sourceTree = "<group>"; };
+		1F49FBBB1F088FFF00C430E5 /* GVLVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVLVideoViewController.m; sourceTree = "<group>"; };
+		1F49FBBD1F08901400C430E5 /* GVLVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVLVoiceViewController.h; sourceTree = "<group>"; };
+		1F49FBBE1F08901400C430E5 /* GVLVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVLVoiceViewController.m; sourceTree = "<group>"; };
+		1F49FBC01F08903800C430E5 /* GVLPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVLPictureViewController.h; sourceTree = "<group>"; };
+		1F49FBC11F08903800C430E5 /* GVLPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVLPictureViewController.m; sourceTree = "<group>"; };
+		1F49FBC31F08907300C430E5 /* GVLWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVLWordViewController.h; sourceTree = "<group>"; };
+		1F49FBC41F08907300C430E5 /* GVLWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVLWordViewController.m; sourceTree = "<group>"; };
+		1F49FBC91F08A9BA00C430E5 /* GVLConstVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVLConstVariable.h; sourceTree = "<group>"; };
+		1F49FBCA1F08A9BA00C430E5 /* GVLConstVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVLConstVariable.m; sourceTree = "<group>"; };
 		1F5224141F04D476001CACDF /* GVLWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVLWebViewController.h; sourceTree = "<group>"; };
 		1F5224151F04D476001CACDF /* GVLWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVLWebViewController.m; sourceTree = "<group>"; };
 		1F5224161F04D476001CACDF /* GVLWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVLWebViewController.xib; sourceTree = "<group>"; };
@@ -421,6 +439,16 @@
 			children = (
 				1FF2F4A81EF031F10034C55B /* GVLEssenceViewController.h */,
 				1FF2F4A91EF031F10034C55B /* GVLEssenceViewController.m */,
+				1F49FBB71F088FD100C430E5 /* GVLAllViewController.h */,
+				1F49FBB81F088FD100C430E5 /* GVLAllViewController.m */,
+				1F49FBBA1F088FFF00C430E5 /* GVLVideoViewController.h */,
+				1F49FBBB1F088FFF00C430E5 /* GVLVideoViewController.m */,
+				1F49FBBD1F08901400C430E5 /* GVLVoiceViewController.h */,
+				1F49FBBE1F08901400C430E5 /* GVLVoiceViewController.m */,
+				1F49FBC01F08903800C430E5 /* GVLPictureViewController.h */,
+				1F49FBC11F08903800C430E5 /* GVLPictureViewController.m */,
+				1F49FBC31F08907300C430E5 /* GVLWordViewController.h */,
+				1F49FBC41F08907300C430E5 /* GVLWordViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -578,6 +606,8 @@
 				1FF2F49D1EF02DE20034C55B /* AppDelegate.m */,
 				1FF2F49E1EF02DE20034C55B /* main.m */,
 				1F45700C1EF253990009E929 /* BuDeJie.pch */,
+				1F49FBC91F08A9BA00C430E5 /* GVLConstVariable.h */,
+				1F49FBCA1F08A9BA00C430E5 /* GVLConstVariable.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -833,12 +863,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F49FBB91F088FD100C430E5 /* GVLAllViewController.m in Sources */,
+				1F49FBCB1F08A9BA00C430E5 /* GVLConstVariable.m in Sources */,
+				1F49FBC21F08903800C430E5 /* GVLPictureViewController.m in Sources */,
 				1F3B53261EFD4B290016ACD4 /* GVLFastButton.m in Sources */,
 				1FF2F4A41EF02DE20034C55B /* main.m in Sources */,
 				1FAF3E821EF39C7300587727 /* GVLAdvertiseViewController.m in Sources */,
 				1F6B3E7B1EFBF8D600D68687 /* GVLLoginRegisterViewController.m in Sources */,
 				1FED79BB1EF2C264000E229A /* GVLSettingViewController.m in Sources */,
 				1F3B53211EFD421D0016ACD4 /* GVLFastLoginView.m in Sources */,
+				1F49FBC51F08907300C430E5 /* GVLWordViewController.m in Sources */,
 				1F896AD51EF1711C00B9B6ED /* UIImage+Render.m in Sources */,
 				1F5828C61EFFE5C6006BED06 /* GVLSquareCellModel.m in Sources */,
 				1F896AD11EF1686300B9B6ED /* GVLTabBarController.m in Sources */,
@@ -849,6 +883,7 @@
 				1F3B53291EFD52460016ACD4 /* GVLTextField.m in Sources */,
 				1FF2F4A31EF02DE20034C55B /* AppDelegate.m in Sources */,
 				1FF2F4AD1EF0324C0034C55B /* GVLFriendTrendViewController.m in Sources */,
+				1F49FBBF1F08901400C430E5 /* GVLVoiceViewController.m in Sources */,
 				1FF2F4B01EF032810034C55B /* GVLMeViewController.m in Sources */,
 				1FF2F4B61EF032B40034C55B /* GVLPublishViewController.m in Sources */,
 				1FEE0B651EFAB2DA001A6439 /* GVLSubTagCell.m in Sources */,
@@ -861,6 +896,7 @@
 				1FED79B11EF2B840000E229A /* GVLNavigationController.m in Sources */,
 				1F45700B1EF24DFC0009E929 /* UIView+Frame.m in Sources */,
 				1F6B3E7F1EFC028500D68687 /* GVLRegisterLoginView.m in Sources */,
+				1F49FBBC1F088FFF00C430E5 /* GVLVideoViewController.m in Sources */,
 				1F9BE15A1EF4F3F50038D16E /* GVLAdvertiseModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,7 @@
 @implementation GVLTextField
 
 -(void)awakeFromNib{
+    [super awakeFromNib];
     //设置光标的颜色
     self.tintColor = [UIColor whiteColor];
     

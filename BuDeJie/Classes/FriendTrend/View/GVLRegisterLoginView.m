@@ -20,6 +20,7 @@
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
 }
 - (void)awakeFromNib{
+    [super awakeFromNib];
     UIImage *currentBackgroundImage = _loginButton.currentBackgroundImage;
     [_loginButton setBackgroundImage:[currentBackgroundImage stretchableImageWithLeftCapWidth:currentBackgroundImage.size.width*0.5 topCapHeight:currentBackgroundImage.size.height*0.5] forState:UIControlStateNormal];
     [_loginButton setBackgroundImage:[currentBackgroundImage stretchableImageWithLeftCapWidth:currentBackgroundImage.size.width*0.5 topCapHeight:currentBackgroundImage.size.height*0.5] forState:UIControlStateHighlighted];

@@ -17,6 +17,8 @@
 #pragma mark -公用头文件
 #import "UIView+Frame.h"
 #import "UIBarButtonItem+ButtonItem.h"
+#pragma mark -常亮头文件
+#import "GVLConstVariable.h"
 
 #pragma mark -公用宏
 #define GVLRandomColor GVLColor((arc4random_uniform(256)),(arc4random_uniform(256)),(arc4random_uniform(256)))
