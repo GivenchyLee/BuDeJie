@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.contentInset = UIEdgeInsetsMake(GVLNavMaxY + GVLTitlesViewH, 0, GVLTabBarH, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.view.backgroundColor = GVLRandomColor;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidAgainClick) name:GVLTabBarButtonDidAgainClickNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidAgainClick) name:GVLTitleButtonDidAgainClickNotification object:nil];
