@@ -7,9 +7,18 @@
 //
 
 #import "GVLAllViewController.h"
-
+#import <AFNetworking/AFNetworking.h>
+#import <MJExtension/MJExtension.h>
+#import "GVLNoteModel.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+#import "GVLNoteCell.h"
 @interface GVLAllViewController ()
-@property(nonatomic, assign) NSInteger dataCount;
+@property(nonatomic, strong) AFHTTPSessionManager *manager;
+//所有的帖子
+@property(nonatomic, strong) NSMutableArray *notesArrayM;
+//当前加载所有帖子的最后一条的时间戳
+@property(nonatomic, copy) NSString *currentTotalNotesMaxTime;
+
 //上拉刷新控件
 @property(nonatomic, weak) UIView *upDragRefreshView;
 //上拉刷新控件里面的文字标签
@@ -21,16 +30,28 @@
 @property(nonatomic, weak) UIView *downDragRefreshView;
 //上来刷新控件里面的文字标签
 @property(nonatomic, weak) UILabel *downDragRefreshTextLabel;
+//下拉刷新状态
 @property(nonatomic, assign, getter=isDownDragingRefreshing) BOOL downDragingRefreshing;
 @end
 
 @implementation GVLAllViewController
 
+static NSString * const ID = @"GVLNoteCell";
+#pragma mark - 懒加载
+- (AFHTTPSessionManager *)manager{
+    if (_manager == nil) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.contentInset = UIEdgeInsetsMake(GVLNavMaxY + GVLTitlesViewH, 0, GVLTabBarH, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    self.view.backgroundColor = GVLRandomColor;
+    self.view.backgroundColor = GVLColor(206, 206, 206);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //注册自定义cell
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GVLNoteCell class]) bundle:nil] forCellReuseIdentifier:ID];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidAgainClick) name:GVLTabBarButtonDidAgainClickNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidAgainClick) name:GVLTitleButtonDidAgainClickNotification object:nil];
@@ -97,42 +118,66 @@
     [self tabBarButtonDidAgainClick];
 }
 #pragma mark - Table view data source
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 300;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    self.tableView.tableFooterView.hidden = (self.dataCount == 0);
-    return self.dataCount;
+    self.tableView.tableFooterView.hidden = (self.notesArrayM.count == 0);
+    return self.notesArrayM.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString * const ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
-    cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@---->%ld", NSStringFromClass([self class]), indexPath.row];
-    
+    GVLNoteModel *currentRowNoteMode = self.notesArrayM[indexPath.row];
+    GVLNoteCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    cell.noteMode = currentRowNoteMode;
     return cell;
 }
-#pragma mark - 代理方法
+#pragma mark - 处理网络请求加载数据
 - (void)loadMoreData{
-    //模拟网络请求
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //服务器返回数据
-        self.dataCount += 5;
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"a"] = @"list";
+    parameters[@"c"] = @"data";
+    parameters[@"maxtime"] = self.currentTotalNotesMaxTime;
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
+        //更新currentTotalNotesMaxTime
+        self.currentTotalNotesMaxTime = responseObject[@"infor"][@"maxtime"];
+        NSMutableArray *moreNotes = [GVLNoteModel mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [self.notesArrayM addObjectsFromArray:moreNotes];
         [self.tableView reloadData];
         [self endUpDragingRefresh];
-        
-    });
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (error.code != NSURLErrorCancelled) {
+            [SVProgressHUD showErrorWithStatus:@"网络繁忙，请稍后再试..."];
+        }
+        [self endUpDragingRefresh];
+    }];
+    /*
+     *Error Domain=NSURLErrorDomain Code=-999 "cancelled" UserInfo={NSErrorFailingURLKey=http://api.budejie.com/api/api_open.php?a=list&c=data, NSLocalizedDescription=cancelled, NSErrorFailingURLStringKey=http://api.budejie.com/api/api_open.php?a=list&c=data}
+     */
 }
 - (void)loadNewData{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //结束刷新
-        //更新数据
-        self.dataCount = 20;
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    //因为是下拉刷新，每一次请求到的都是最新的数据，而且是直接替换原来的数据的，所以不用传maxtime之类的东西
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"a"] = @"list";
+    parameters[@"c"] = @"data";
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
+//        [responseObject writeToFile:@"/Users/givenchylee/Desktop/newData.plist" atomically:YES];
+        self.currentTotalNotesMaxTime = responseObject[@"info"][@"maxtime"];
+        //字典数组转模型数组
+        self.notesArrayM = [GVLNoteModel mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        //刷新表格
         [self.tableView reloadData];
         [self endDownDragingRefresh];
-    });
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (error.code != NSURLErrorCancelled) {
+            [SVProgressHUD showErrorWithStatus:@"网络繁忙，请稍后再试..."];
+        }
+        [self endDownDragingRefresh];
+    }];
 }
+#pragma mark - 开始刷新/结束刷新
 - (void)beginUpDragingRefresh{
     if(self.isUpDragingRefreshing) return;
     self.upDragRefreshTextLabel.text = @"正在刷新数据";
@@ -174,20 +219,7 @@
         self.tableView.contentInset = inset;
     }];
 }
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    //上拉刷新
-    [self dealDragingUp];
-    //下来刷新
-    [self dealDragingDown];
-    
-}
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    CGFloat offsetY = - (self.tableView.contentInset.top + self.downDragRefreshView.gvl_height);
-    if(self.tableView.contentOffset.y <= offsetY){
-        //开始下拉刷新
-        [self beginDownDragingRefresh];
-    }
-}
+#pragma mark - 处理上下拉操作
 - (void)dealDragingDown{
     if(self.isDownDragingRefreshing) return;
     CGFloat offsetY = - (self.tableView.contentInset.top + self.downDragRefreshView.gvl_height);
@@ -206,6 +238,21 @@
     if(self.tableView.contentOffset.y >= offsetY && self.tableView.contentOffset.y > -(self.tableView.contentInset.top)){
         //开始刷新
         [self beginUpDragingRefresh];
+    }
+}
+#pragma mark - 代理方法
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //上拉刷新
+    [self dealDragingUp];
+    //下来刷新
+    [self dealDragingDown];
+    
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    CGFloat offsetY = - (self.tableView.contentInset.top + self.downDragRefreshView.gvl_height);
+    if(self.tableView.contentOffset.y <= offsetY){
+        //开始下拉刷新
+        [self beginDownDragingRefresh];
     }
 }
 #pragma mark - 其它

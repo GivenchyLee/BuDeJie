@@ -47,7 +47,7 @@
     _goForwardButtonItem.enabled = self.webView.canGoForward;
     [_progressLine setProgress:self.webView.estimatedProgress animated:YES];
     _progressLine.hidden = self.webView.estimatedProgress >= 1;
-    //精度条执行完成后，隐藏进度条
+    //进度条执行完成后，隐藏进度条
 }
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];

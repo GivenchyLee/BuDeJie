@@ -22,6 +22,7 @@
 		1F49FBCB1F08A9BA00C430E5 /* GVLConstVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F49FBCA1F08A9BA00C430E5 /* GVLConstVariable.m */; };
 		1F5224171F04D476001CACDF /* GVLWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5224151F04D476001CACDF /* GVLWebViewController.m */; };
 		1F5224181F04D476001CACDF /* GVLWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5224161F04D476001CACDF /* GVLWebViewController.xib */; };
+		1F528E931F11EA0000B49AC6 /* GVLNoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F528E921F11EA0000B49AC6 /* GVLNoteModel.m */; };
 		1F5828C21EFFDEDE006BED06 /* GVLSquareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5828C01EFFDEDE006BED06 /* GVLSquareCell.m */; };
 		1F5828C31EFFDEDE006BED06 /* GVLSquareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5828C11EFFDEDE006BED06 /* GVLSquareCell.xib */; };
 		1F5828C61EFFE5C6006BED06 /* GVLSquareCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5828C51EFFE5C6006BED06 /* GVLSquareCellModel.m */; };
@@ -43,6 +44,9 @@
 		1FAF3E911EF3A12600587727 /* LaunchImage-800-Portrait-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF3E8A1EF3A12600587727 /* LaunchImage-800-Portrait-736h@3x.png */; };
 		1FAF3E921EF3A12600587727 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF3E8B1EF3A12600587727 /* LaunchImage.png */; };
 		1FAF3E931EF3A12600587727 /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF3E8C1EF3A12600587727 /* LaunchImage@2x.png */; };
+		1FC7AA1E1F122124000679CB /* GVLNoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FC7AA1C1F122124000679CB /* GVLNoteCell.m */; };
+		1FC7AA1F1F122124000679CB /* GVLNoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FC7AA1D1F122124000679CB /* GVLNoteCell.xib */; };
+		1FC7AA221F126087000679CB /* UIImage+ClipImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FC7AA211F126087000679CB /* UIImage+ClipImage.m */; };
 		1FCC3A821F05381B008AF6B2 /* GVLTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCC3A811F05381B008AF6B2 /* GVLTitleButton.m */; };
 		1FED79AE1EF2AC14000E229A /* UIBarButtonItem+ButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FED79AD1EF2AC14000E229A /* UIBarButtonItem+ButtonItem.m */; };
 		1FED79B11EF2B840000E229A /* GVLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FED79B01EF2B840000E229A /* GVLNavigationController.m */; };
@@ -112,6 +116,8 @@
 		1F5224141F04D476001CACDF /* GVLWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVLWebViewController.h; sourceTree = "<group>"; };
 		1F5224151F04D476001CACDF /* GVLWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVLWebViewController.m; sourceTree = "<group>"; };
 		1F5224161F04D476001CACDF /* GVLWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVLWebViewController.xib; sourceTree = "<group>"; };
+		1F528E911F11EA0000B49AC6 /* GVLNoteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVLNoteModel.h; sourceTree = "<group>"; };
+		1F528E921F11EA0000B49AC6 /* GVLNoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVLNoteModel.m; sourceTree = "<group>"; };
 		1F5828BF1EFFDEDE006BED06 /* GVLSquareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVLSquareCell.h; sourceTree = "<group>"; };
 		1F5828C01EFFDEDE006BED06 /* GVLSquareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVLSquareCell.m; sourceTree = "<group>"; };
 		1F5828C11EFFDEDE006BED06 /* GVLSquareCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVLSquareCell.xib; sourceTree = "<group>"; };
@@ -142,6 +148,11 @@
 		1FAF3E8A1EF3A12600587727 /* LaunchImage-800-Portrait-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-800-Portrait-736h@3x.png"; sourceTree = "<group>"; };
 		1FAF3E8B1EF3A12600587727 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
 		1FAF3E8C1EF3A12600587727 /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x.png"; sourceTree = "<group>"; };
+		1FC7AA1B1F122124000679CB /* GVLNoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVLNoteCell.h; sourceTree = "<group>"; };
+		1FC7AA1C1F122124000679CB /* GVLNoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVLNoteCell.m; sourceTree = "<group>"; };
+		1FC7AA1D1F122124000679CB /* GVLNoteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVLNoteCell.xib; sourceTree = "<group>"; };
+		1FC7AA201F126087000679CB /* UIImage+ClipImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ClipImage.h"; sourceTree = "<group>"; };
+		1FC7AA211F126087000679CB /* UIImage+ClipImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ClipImage.m"; sourceTree = "<group>"; };
 		1FCC3A801F05381B008AF6B2 /* GVLTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVLTitleButton.h; sourceTree = "<group>"; };
 		1FCC3A811F05381B008AF6B2 /* GVLTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVLTitleButton.m; sourceTree = "<group>"; };
 		1FED79AC1EF2AC14000E229A /* UIBarButtonItem+ButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ButtonItem.h"; sourceTree = "<group>"; };
@@ -252,6 +263,8 @@
 		1F896AD21EF1705300B9B6ED /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				1FC7AA201F126087000679CB /* UIImage+ClipImage.h */,
+				1FC7AA211F126087000679CB /* UIImage+ClipImage.m */,
 				1F896AD31EF1711C00B9B6ED /* UIImage+Render.h */,
 				1F896AD41EF1711C00B9B6ED /* UIImage+Render.m */,
 				1F4570091EF24DFC0009E929 /* UIView+Frame.h */,
@@ -456,6 +469,8 @@
 		1FF2F48D1EF02DE20034C55B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1F528E911F11EA0000B49AC6 /* GVLNoteModel.h */,
+				1F528E921F11EA0000B49AC6 /* GVLNoteModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -465,6 +480,9 @@
 			children = (
 				1FCC3A801F05381B008AF6B2 /* GVLTitleButton.h */,
 				1FCC3A811F05381B008AF6B2 /* GVLTitleButton.m */,
+				1FC7AA1B1F122124000679CB /* GVLNoteCell.h */,
+				1FC7AA1C1F122124000679CB /* GVLNoteCell.m */,
+				1FC7AA1D1F122124000679CB /* GVLNoteCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -791,6 +809,7 @@
 				1FAF3E8F1EF3A12600587727 /* LaunchImage-700@2x.png in Resources */,
 				1FF2F4621EF02BCC0034C55B /* Main.storyboard in Resources */,
 				1F08234B1EFFCF9100A872B5 /* GVLMeViewController.storyboard in Resources */,
+				1FC7AA1F1F122124000679CB /* GVLNoteCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,9 +883,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F49FBB91F088FD100C430E5 /* GVLAllViewController.m in Sources */,
+				1F528E931F11EA0000B49AC6 /* GVLNoteModel.m in Sources */,
 				1F49FBCB1F08A9BA00C430E5 /* GVLConstVariable.m in Sources */,
 				1F49FBC21F08903800C430E5 /* GVLPictureViewController.m in Sources */,
 				1F3B53261EFD4B290016ACD4 /* GVLFastButton.m in Sources */,
+				1FC7AA1E1F122124000679CB /* GVLNoteCell.m in Sources */,
 				1FF2F4A41EF02DE20034C55B /* main.m in Sources */,
 				1FAF3E821EF39C7300587727 /* GVLAdvertiseViewController.m in Sources */,
 				1F6B3E7B1EFBF8D600D68687 /* GVLLoginRegisterViewController.m in Sources */,
@@ -898,6 +919,7 @@
 				1F6B3E7F1EFC028500D68687 /* GVLRegisterLoginView.m in Sources */,
 				1F49FBBC1F088FFF00C430E5 /* GVLVideoViewController.m in Sources */,
 				1F9BE15A1EF4F3F50038D16E /* GVLAdvertiseModel.m in Sources */,
+				1FC7AA221F126087000679CB /* UIImage+ClipImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

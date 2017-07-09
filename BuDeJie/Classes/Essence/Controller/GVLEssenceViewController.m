@@ -129,6 +129,9 @@
     if (self.previousSelectedButton == button) {
         [[NSNotificationCenter defaultCenter] postNotificationName:GVLTitleButtonDidAgainClickNotification object:nil];
     }
+    [self changeButtonStyle:button];
+}
+- (void)changeButtonStyle:(GVLTitleButton *)button{
     self.previousSelectedButton.selected = NO;
     button.selected = YES;
     self.previousSelectedButton = button;
@@ -167,7 +170,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     NSUInteger buttonIndex = self.scrollView.contentOffset.x / self.scrollView.gvl_width;
     GVLTitleButton *titleButton = self.titlesView.subviews[buttonIndex];
-    [self titleButtonClick:titleButton];
+    [self changeButtonStyle:titleButton];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
