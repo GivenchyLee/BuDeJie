@@ -20,3 +20,6 @@ NSString * const GVLTabBarButtonDidAgainClickNotification = @"GVLTabBarButtonDid
 
 //TitleButton重复点击通知名称
 NSString * const GVLTitleButtonDidAgainClickNotification = @"GVLTitleButtonDidAgainClickNotification";
+
+//通用Margin的值
+UIKIT_EXTERN CGFloat const GVLMargin = 10;

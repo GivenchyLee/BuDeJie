@@ -17,3 +17,5 @@ UIKIT_EXTERN CGFloat const GVLNavMaxY;
 UIKIT_EXTERN NSString * const GVLTabBarButtonDidAgainClickNotification;
 //TitleButton重复点击通知名称
 UIKIT_EXTERN NSString * const GVLTitleButtonDidAgainClickNotification;
+//通用Margin的值
+UIKIT_EXTERN CGFloat const GVLMargin;

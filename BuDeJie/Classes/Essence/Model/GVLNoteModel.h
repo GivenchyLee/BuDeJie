@@ -25,4 +25,10 @@
 @property(nonatomic, assign) NSString *repost;
 //评论的数量
 @property(nonatomic, assign) NSString *comment;
+
+/*
+ 这个并不是服务器返回来数据里面的属性
+ 为了优化GVLAllViewController里面的heightForRow方法，将计算对应模型的cell高度的代码封装到模型的一个属性
+*/
+@property(nonatomic, assign) CGFloat cellHeight;
 @end

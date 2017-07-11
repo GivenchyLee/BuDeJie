@@ -57,7 +57,7 @@
     [button setTitle:title forState:UIControlStateNormal];
 }
 - (void)setFrame:(CGRect)frame{
-    frame.size.height -= 10;
+    frame.size.height -= GVLMargin;
     [super setFrame:frame];
 }
 @end

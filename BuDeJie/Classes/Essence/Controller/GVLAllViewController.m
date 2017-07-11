@@ -15,7 +15,7 @@
 @interface GVLAllViewController ()
 @property(nonatomic, strong) AFHTTPSessionManager *manager;
 //所有的帖子
-@property(nonatomic, strong) NSMutableArray *notesArrayM;
+@property(nonatomic, strong) NSMutableArray<GVLNoteModel *> *notesArrayM;
 //当前加载所有帖子的最后一条的时间戳
 @property(nonatomic, copy) NSString *currentTotalNotesMaxTime;
 
@@ -119,7 +119,7 @@ static NSString * const ID = @"GVLNoteCell";
 }
 #pragma mark - Table view data source
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 300;
+    return self.notesArrayM[indexPath.row].cellHeight;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     self.tableView.tableFooterView.hidden = (self.notesArrayM.count == 0);
@@ -141,7 +141,7 @@ static NSString * const ID = @"GVLNoteCell";
     parameters[@"maxtime"] = self.currentTotalNotesMaxTime;
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         //更新currentTotalNotesMaxTime
-        self.currentTotalNotesMaxTime = responseObject[@"infor"][@"maxtime"];
+        self.currentTotalNotesMaxTime = responseObject[@"info"][@"maxtime"];
         NSMutableArray *moreNotes = [GVLNoteModel mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         [self.notesArrayM addObjectsFromArray:moreNotes];
         [self.tableView reloadData];
