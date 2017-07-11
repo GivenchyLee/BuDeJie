@@ -140,8 +140,34 @@
                             <constraint firstItem="D8b-xD-9Pp" firstAttribute="top" secondItem="EhX-Wh-UeQ" secondAttribute="top" id="yK8-JU-UFc"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64T-F6-gdg" userLabel="最热评论整体">
+                        <rect key="frame" x="10" y="271" width="260" height="34"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYh-bz-xzM" userLabel="最热评论标题">
+                                <rect key="frame" x="0.0" y="0.0" width="61.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLab" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uje-9S-Jbb" userLabel="最热评论内容">
+                                <rect key="frame" x="0.0" y="18" width="260" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="uje-9S-Jbb" firstAttribute="leading" secondItem="64T-F6-gdg" secondAttribute="leading" id="P88-Zs-4St"/>
+                            <constraint firstItem="iYh-bz-xzM" firstAttribute="leading" secondItem="64T-F6-gdg" secondAttribute="leading" id="aqv-Uq-KQH"/>
+                            <constraint firstAttribute="trailing" secondItem="uje-9S-Jbb" secondAttribute="trailing" id="cTL-Aa-adI"/>
+                            <constraint firstAttribute="bottom" secondItem="uje-9S-Jbb" secondAttribute="bottom" id="m82-Gr-GdJ"/>
+                            <constraint firstItem="uje-9S-Jbb" firstAttribute="top" secondItem="iYh-bz-xzM" secondAttribute="bottom" id="wek-yI-vWK"/>
+                            <constraint firstItem="iYh-bz-xzM" firstAttribute="top" secondItem="64T-F6-gdg" secondAttribute="top" id="zVL-SX-LdM"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="64T-F6-gdg" firstAttribute="leading" secondItem="Tb2-14-pmf" secondAttribute="leading" id="1uy-uB-kAL"/>
                     <constraint firstAttribute="bottom" secondItem="EhX-Wh-UeQ" secondAttribute="bottom" id="3RS-vW-vl9"/>
                     <constraint firstItem="EhX-Wh-UeQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="476-U6-jhX"/>
                     <constraint firstAttribute="trailing" secondItem="EhX-Wh-UeQ" secondAttribute="trailing" id="CAX-Xb-oQe"/>
@@ -152,7 +178,9 @@
                     <constraint firstItem="UsJ-Dm-oWF" firstAttribute="leading" secondItem="6PG-41-Zpg" secondAttribute="trailing" constant="10" id="O5A-oj-Ks4"/>
                     <constraint firstAttribute="trailing" secondItem="Tb2-14-pmf" secondAttribute="trailing" constant="10" id="WYj-VM-5oX"/>
                     <constraint firstItem="4M4-9O-1Hr" firstAttribute="leading" secondItem="6PG-41-Zpg" secondAttribute="trailing" constant="10" id="WeH-DS-hsM"/>
+                    <constraint firstItem="64T-F6-gdg" firstAttribute="trailing" secondItem="Tb2-14-pmf" secondAttribute="trailing" id="YUe-AU-kWy"/>
                     <constraint firstItem="Tb2-14-pmf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ZIJ-ps-CrI"/>
+                    <constraint firstItem="EhX-Wh-UeQ" firstAttribute="top" secondItem="64T-F6-gdg" secondAttribute="bottom" constant="10" id="gSK-j4-58B"/>
                     <constraint firstItem="Tb2-14-pmf" firstAttribute="top" secondItem="UsJ-Dm-oWF" secondAttribute="bottom" constant="10" id="kgb-gV-uUj"/>
                     <constraint firstItem="6PG-41-Zpg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="sop-yw-PSS"/>
                     <constraint firstItem="4M4-9O-1Hr" firstAttribute="top" secondItem="6PG-41-Zpg" secondAttribute="top" id="xDu-8r-zU5"/>
@@ -161,14 +189,16 @@
             <connections>
                 <outlet property="caiButton" destination="JHl-Jq-cvZ" id="3mN-eD-O2b"/>
                 <outlet property="commentButton" destination="MPX-wE-jB2" id="OSk-Lw-hFT"/>
+                <outlet property="commentContentLabel" destination="uje-9S-Jbb" id="wNv-bW-cH5"/>
                 <outlet property="dingButton" destination="kTh-Y4-etH" id="1kU-cY-heE"/>
                 <outlet property="nameLabel" destination="4M4-9O-1Hr" id="3rJ-Ij-wRc"/>
                 <outlet property="noteTextLabel" destination="Tb2-14-pmf" id="JMQ-iq-o5t"/>
                 <outlet property="passTimeLabel" destination="UsJ-Dm-oWF" id="Jx0-vO-0TA"/>
                 <outlet property="profileImageView" destination="6PG-41-Zpg" id="Mtm-NT-VYo"/>
                 <outlet property="repostButton" destination="hhV-P4-oLU" id="FYi-fj-UZ9"/>
+                <outlet property="topCommentView" destination="64T-F6-gdg" id="qq2-WR-4RI"/>
             </connections>
-            <point key="canvasLocation" x="-175" y="-184"/>
+            <point key="canvasLocation" x="-340" y="-177"/>
         </tableViewCell>
     </objects>
     <resources>

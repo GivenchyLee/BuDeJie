@@ -22,4 +22,4 @@ NSString * const GVLTabBarButtonDidAgainClickNotification = @"GVLTabBarButtonDid
 NSString * const GVLTitleButtonDidAgainClickNotification = @"GVLTitleButtonDidAgainClickNotification";
 
 //通用Margin的值
-UIKIT_EXTERN CGFloat const GVLMargin = 10;
+CGFloat const GVLMargin = 10;

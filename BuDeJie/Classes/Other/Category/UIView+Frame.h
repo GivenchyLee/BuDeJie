@@ -15,4 +15,7 @@
 @property CGFloat gvl_y;
 @property CGFloat gvl_centerX;
 @property CGFloat gvl_centerY;
+
+//从xib加载View
++ (instancetype)gvl_ViewFromXib;
 @end

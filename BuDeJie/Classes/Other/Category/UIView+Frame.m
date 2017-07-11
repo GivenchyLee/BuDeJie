@@ -7,8 +7,10 @@
 //
 
 #import "UIView+Frame.h"
-
 @implementation UIView (Frame)
++ (instancetype)gvl_ViewFromXib{
+    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil].firstObject;
+}
 - (CGFloat)gvl_width{
     return self.frame.size.width;
 }

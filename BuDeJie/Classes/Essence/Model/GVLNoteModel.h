@@ -7,7 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+//typedef enum{
+//    GVLNoteTypeAll = 1,
+//    GVLNoteTypePicture = 10,
+//    GVLNoteTypeWord = 29,
+//    GVLNoteTypeVoice = 31,
+//    GVLNoteTypeVedio = 41
+//}GVLNoteType;
 
+typedef NS_ENUM(NSInteger, GVLNoteType){
+    GVLNoteTypeAll = 1,
+    GVLNoteTypePicture = 10,
+    GVLNoteTypeWord = 29,
+    GVLNoteTypeVoice = 31,
+    GVLNoteTypeVideo = 41
+};
 @interface GVLNoteModel : NSObject
 //用户名称
 @property(nonatomic, copy) NSString *name;
@@ -25,10 +39,17 @@
 @property(nonatomic, assign) NSString *repost;
 //评论的数量
 @property(nonatomic, assign) NSString *comment;
-
+//服务器返回最热评论数组
+@property(nonatomic, strong) NSArray *top_cmt;
+//服务器返回中间内容的宽和高
+@property(nonatomic, assign) NSInteger height;
+@property(nonatomic, assign) NSInteger width;
+//服务器返回帖子的类型
+@property(nonatomic, assign) NSInteger type;
 /*
  这个并不是服务器返回来数据里面的属性
  为了优化GVLAllViewController里面的heightForRow方法，将计算对应模型的cell高度的代码封装到模型的一个属性
 */
 @property(nonatomic, assign) CGFloat cellHeight;
+@property(nonatomic, assign) CGRect middleContentFrame;
 @end

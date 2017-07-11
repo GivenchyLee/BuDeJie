@@ -9,6 +9,9 @@
 #import "GVLNoteCell.h"
 #import <UIImageView+WebCache.h>
 #import "UIImage+ClipImage.h"
+#import "GVLNotePictureView.h"
+#import "GVLNoteVideoView.h"
+#import "GVLNoteVoiceView.h"
 @interface GVLNoteCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -18,16 +21,51 @@
 @property (weak, nonatomic) IBOutlet UIButton *caiButton;
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
+@property (weak, nonatomic) IBOutlet UIView *topCommentView;
+@property (weak, nonatomic) IBOutlet UILabel *commentContentLabel;
 
-
+@property (weak, nonatomic) UIView *notePictureView;
+@property (weak, nonatomic) UIView *noteVideoView;
+@property (weak, nonatomic) UIView *noteVoiceView;
 @end
 @implementation GVLNoteCell
+#pragma mark -懒加载
+- (UIView *)notePictureView{
+    if (_notePictureView == nil) {
+        _notePictureView = [GVLNotePictureView gvl_ViewFromXib];
+        [self.contentView addSubview:_notePictureView];
+    }
+    return _notePictureView;
+}
+- (UIView *)noteVideoView{
+    if (_noteVideoView == nil) {
+        _noteVideoView = [GVLNoteVideoView gvl_ViewFromXib];
+        [self.contentView addSubview:_noteVideoView];
+    }
+    return _noteVideoView;
+}
+- (UIView *)noteVoiceView{
+    if (_noteVoiceView == nil) {
+        _noteVoiceView = [GVLNoteVoiceView gvl_ViewFromXib];
+        [self.contentView addSubview:_noteVoiceView];
+    }
+    return _noteVoiceView;
+}
 //设置cell的背景图片，有于cell是通过nib加载的，所以会先进入awakeFromNib
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
 }
-
+- (void)setButtonTitle:(UIButton *)button title:(NSString *)title placeHolder:(NSString *)placeHolder{
+    NSInteger titleNumber = [title integerValue];
+    if (titleNumber > 10000) {
+        title = [NSString stringWithFormat:@"%.1f万", titleNumber/10000.0];
+        title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
+    }else if(titleNumber == 0){
+        title = placeHolder;
+    }
+    [button setTitle:title forState:UIControlStateNormal];
+}
 - (void)setNoteMode:(GVLNoteModel *)noteMode{
     _noteMode = noteMode;
     self.nameLabel.text = noteMode.name;
@@ -45,16 +83,52 @@
         }
         self.profileImageView.image = [image gvl_clipCircularImage];
     }];
-}
-- (void)setButtonTitle:(UIButton *)button title:(NSString *)title placeHolder:(NSString *)placeHolder{
-    NSInteger titleNumber = [title integerValue];
-    if (titleNumber > 10000) {
-        title = [NSString stringWithFormat:@"%.1f万", titleNumber/10000.0];
-        title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
-    }else if(titleNumber == 0){
-        title = placeHolder;
+    //添加自定义中间的View
+    //加载图片
+    if (noteMode.type == GVLNoteTypePicture) {
+        self.notePictureView.hidden = NO;
+        self.noteVoiceView.hidden = YES;
+        self.noteVideoView.hidden = YES;
+    }else if(noteMode.type == GVLNoteTypeVideo){
+        self.notePictureView.hidden = YES;
+        self.noteVoiceView.hidden = YES;
+        self.noteVideoView.hidden = NO;
+    }else if(noteMode.type == GVLNoteTypeVoice){
+        self.notePictureView.hidden = YES;
+        self.noteVoiceView.hidden = NO;
+        self.noteVideoView.hidden = YES;
+    }else if(noteMode.type == GVLNoteTypeWord){
+        self.notePictureView.hidden = YES;
+        self.noteVoiceView.hidden = YES;
+        self.noteVideoView.hidden = YES;
     }
-    [button setTitle:title forState:UIControlStateNormal];
+    
+    //显示最热评论内容,由于返回的数组中只有一个元素，用firstObject拿出来
+    if (noteMode.top_cmt.count) {
+        self.topCommentView.hidden = NO;
+        NSDictionary *commentDict = [noteMode.top_cmt firstObject];
+        NSString * commentUser = commentDict[@"user"][@"username"];
+        NSString * commentContent = commentDict[@"content"];
+        if (commentContent.length == 0) {
+            commentContent = @"[语音评论]";
+        }
+        self.commentContentLabel.text = [NSString stringWithFormat:@"%@ : %@",commentUser, commentContent];
+    }else{
+        self.topCommentView.hidden = YES;
+    }
+    
+}
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    if (self.noteMode.type == GVLNoteTypePicture) {
+        self.notePictureView.frame = self.noteMode.middleContentFrame;
+
+    }else if(self.noteMode.type == GVLNoteTypeVideo){
+        self.noteVideoView.frame = self.noteMode.middleContentFrame;
+    }else if(self.noteMode.type == GVLNoteTypeVoice){
+        self.noteVoiceView.frame = self.noteMode.middleContentFrame;
+    }
+    
 }
 - (void)setFrame:(CGRect)frame{
     frame.size.height -= GVLMargin;
