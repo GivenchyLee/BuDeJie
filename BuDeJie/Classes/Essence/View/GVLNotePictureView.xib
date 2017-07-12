@@ -12,11 +12,60 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GVLNotePictureView">
-            <rect key="frame" x="0.0" y="0.0" width="345" height="177"/>
+            <rect key="frame" x="0.0" y="0.0" width="345" height="230"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageBackground" translatesAutoresizingMaskIntoConstraints="NO" id="HDW-aL-CHn" userLabel="占位图片">
+                    <rect key="frame" x="0.0" y="20" width="345" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="61V-AZ-Jvo"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d3U-oF-fi1">
+                    <rect key="frame" x="0.0" y="0.0" width="345" height="230"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common-gif" translatesAutoresizingMaskIntoConstraints="NO" id="4nz-2X-ry6">
+                    <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="31" id="uLf-q0-fVw"/>
+                        <constraint firstAttribute="height" constant="31" id="zO6-N3-486"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IzF-kD-PJ7">
+                    <rect key="frame" x="0.0" y="187" width="345" height="43"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="点击查看大图" image="see-big-picture" backgroundImage="see-big-picture-background"/>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="HDW-aL-CHn" secondAttribute="trailing" id="4qD-HJ-GDV"/>
+                <constraint firstItem="d3U-oF-fi1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6Th-tY-NG9"/>
+                <constraint firstAttribute="bottom" secondItem="IzF-kD-PJ7" secondAttribute="bottom" id="7qd-kR-fXV"/>
+                <constraint firstItem="d3U-oF-fi1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="IEV-3e-HDp"/>
+                <constraint firstAttribute="bottom" secondItem="d3U-oF-fi1" secondAttribute="bottom" id="O5T-am-NQt"/>
+                <constraint firstItem="HDW-aL-CHn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QZY-aS-JFH"/>
+                <constraint firstAttribute="trailing" secondItem="d3U-oF-fi1" secondAttribute="trailing" id="fEC-Qp-YKl"/>
+                <constraint firstItem="IzF-kD-PJ7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jga-VO-yI8"/>
+                <constraint firstAttribute="trailing" secondItem="IzF-kD-PJ7" secondAttribute="trailing" id="lJr-HD-OJD"/>
+                <constraint firstItem="HDW-aL-CHn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="lKv-vn-8UY"/>
+                <constraint firstItem="4nz-2X-ry6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="m2m-MC-SJG"/>
+                <constraint firstItem="4nz-2X-ry6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="x7M-Oe-EVJ"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="gifImageView" destination="4nz-2X-ry6" id="oir-GI-fz8"/>
+                <outlet property="imageView" destination="d3U-oF-fi1" id="mRW-7G-6Km"/>
+                <outlet property="placeholderImageView" destination="HDW-aL-CHn" id="4wV-6F-lsT"/>
+                <outlet property="seeBigPicButton" destination="IzF-kD-PJ7" id="N6n-hC-emK"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="145"/>
         </view>
     </objects>
+    <resources>
+        <image name="common-gif" width="31" height="31"/>
+        <image name="imageBackground" width="75" height="15"/>
+        <image name="see-big-picture" width="19" height="19"/>
+        <image name="see-big-picture-background" width="285" height="43"/>
+    </resources>
 </document>

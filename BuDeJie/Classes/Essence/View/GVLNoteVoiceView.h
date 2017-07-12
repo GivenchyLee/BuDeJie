@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GVLNoteModel.h"
 @interface GVLNoteVoiceView : UIView
-
+@property(nonatomic, strong) GVLNoteModel *noteMode;
 @end

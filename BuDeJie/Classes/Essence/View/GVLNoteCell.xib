@@ -66,6 +66,7 @@
                                 <state key="normal" title="顶" image="mainCellDing">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="highlighted" image="mainCellDingClick"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHl-Jq-cvZ" userLabel="踩">
                                 <rect key="frame" x="70.5" y="1" width="69" height="34"/>
@@ -73,6 +74,7 @@
                                 <state key="normal" title="踩" image="mainCellCai">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="highlighted" image="mainCellCaiClick"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhV-P4-oLU">
                                 <rect key="frame" x="140.5" y="1" width="69.5" height="34"/>
@@ -80,6 +82,7 @@
                                 <state key="normal" title="分享" image="mainCellShare">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="highlighted" image="mainCellShareClick"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPX-wE-jB2" userLabel="评论">
                                 <rect key="frame" x="211" y="1" width="69" height="34"/>
@@ -87,6 +90,7 @@
                                 <state key="normal" title="评论" image="mainCellComment">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="highlighted" image="mainCellCommentClick"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-button-line" translatesAutoresizingMaskIntoConstraints="NO" id="D8b-xD-9Pp">
                                 <rect key="frame" x="69.5" y="0.0" width="1" height="35"/>
@@ -187,6 +191,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="bottomToolBarView" destination="EhX-Wh-UeQ" id="JHt-gc-qea"/>
                 <outlet property="caiButton" destination="JHl-Jq-cvZ" id="3mN-eD-O2b"/>
                 <outlet property="commentButton" destination="MPX-wE-jB2" id="OSk-Lw-hFT"/>
                 <outlet property="commentContentLabel" destination="uje-9S-Jbb" id="wNv-bW-cH5"/>
@@ -206,8 +211,12 @@
         <image name="cell-content-line" width="299" height="1"/>
         <image name="cellmorebtnnormal" width="24" height="20"/>
         <image name="mainCellCai" width="20" height="20"/>
+        <image name="mainCellCaiClick" width="20" height="20"/>
         <image name="mainCellComment" width="20" height="20"/>
+        <image name="mainCellCommentClick" width="20" height="20"/>
         <image name="mainCellDing" width="20" height="20"/>
+        <image name="mainCellDingClick" width="20" height="20"/>
         <image name="mainCellShare" width="20" height="20"/>
+        <image name="mainCellShareClick" width="23" height="23"/>
     </resources>
 </document>

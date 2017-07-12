@@ -46,10 +46,26 @@ typedef NS_ENUM(NSInteger, GVLNoteType){
 @property(nonatomic, assign) NSInteger width;
 //服务器返回帖子的类型
 @property(nonatomic, assign) NSInteger type;
+
+//videoXib或者voiceXib需要的属性
+@property(nonatomic, assign) NSInteger playcount;
+@property(nonatomic, assign) NSInteger videotime;
+@property(nonatomic, assign) NSInteger voicetime;
+//小图
+@property(nonatomic, copy) NSString *image0;
+//中图
+@property(nonatomic, copy) NSString *image2;
+//大图
+@property(nonatomic, copy) NSString *image1;
+
+//pictureXib需要的属性
+//是否为GIF图片
+@property(nonatomic, assign) BOOL is_gif;
 /*
  这个并不是服务器返回来数据里面的属性
  为了优化GVLAllViewController里面的heightForRow方法，将计算对应模型的cell高度的代码封装到模型的一个属性
 */
 @property(nonatomic, assign) CGFloat cellHeight;
 @property(nonatomic, assign) CGRect middleContentFrame;
+@property(nonatomic, assign, getter=isBigPic) BOOL isBigPic;
 @end

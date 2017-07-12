@@ -26,8 +26,14 @@
     if (self.type != GVLNoteTypeWord) {
         CGFloat middleContentWidth = textMaxSize.width;
         CGFloat middleContentHeight = self.height * (middleContentWidth/self.width);
+        //如果当前算出来的中间图片的高度大于了一个屏幕的高度，设置isBigPic为true;
+        if (middleContentHeight > GVLScreenH) {
+            self.isBigPic = true;
+            middleContentHeight = 200;
+        }else{
+            self.isBigPic = false;
+        }
         self.middleContentFrame = CGRectMake(GVLMargin, _cellHeight, middleContentWidth, middleContentHeight);
-        
         _cellHeight += middleContentHeight + GVLMargin;
     }
     

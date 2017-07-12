@@ -23,10 +23,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UIView *topCommentView;
 @property (weak, nonatomic) IBOutlet UILabel *commentContentLabel;
+//调整底部工具条里面按钮中图片和文字之间的间距，拿到底部工具条
+@property (weak, nonatomic) IBOutlet UIView *bottomToolBarView;
 
-@property (weak, nonatomic) UIView *notePictureView;
-@property (weak, nonatomic) UIView *noteVideoView;
-@property (weak, nonatomic) UIView *noteVoiceView;
+
+
+@property (weak, nonatomic) GVLNotePictureView *notePictureView;
+@property (weak, nonatomic) GVLNoteVideoView *noteVideoView;
+@property (weak, nonatomic) GVLNoteVoiceView *noteVoiceView;
 @end
 @implementation GVLNoteCell
 #pragma mark -懒加载
@@ -55,6 +59,14 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
+    //调整里面按钮图片和文字之间的间距
+    for (UIView *childView in self.bottomToolBarView.subviews) {
+        if ([childView isMemberOfClass:[UIButton class]]) {
+            UIButton *childButton = (UIButton *)childView;
+            childButton.titleEdgeInsets = UIEdgeInsetsMake(0, GVLMargin*0.5, 0, 0);
+            childButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, GVLMargin*0.5);
+        }
+    }
 }
 - (void)setButtonTitle:(UIButton *)button title:(NSString *)title placeHolder:(NSString *)placeHolder{
     NSInteger titleNumber = [title integerValue];
@@ -89,14 +101,17 @@
         self.notePictureView.hidden = NO;
         self.noteVoiceView.hidden = YES;
         self.noteVideoView.hidden = YES;
+        self.notePictureView.noteMode = noteMode;
     }else if(noteMode.type == GVLNoteTypeVideo){
         self.notePictureView.hidden = YES;
         self.noteVoiceView.hidden = YES;
         self.noteVideoView.hidden = NO;
+        self.noteVideoView.noteMode = noteMode;
     }else if(noteMode.type == GVLNoteTypeVoice){
         self.notePictureView.hidden = YES;
         self.noteVoiceView.hidden = NO;
         self.noteVideoView.hidden = YES;
+        self.noteVoiceView.noteMode = noteMode;
     }else if(noteMode.type == GVLNoteTypeWord){
         self.notePictureView.hidden = YES;
         self.noteVoiceView.hidden = YES;
