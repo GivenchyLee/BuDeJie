@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FLAnimatedImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,17 +37,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>113E7FE1D6CD4E21F0F5763644A20C9F</key>
+		<key>10A48EB7854F83413DD452797E2D7DF3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>473D41A71B8E3CA354CBAC7110CA4E49</key>
+		<key>25D4CBF9ED2DAD034419C947AF7A6392</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>544F71464A4D455A8FBD6C3F5D7369E0</key>
+		<key>53F8571E2D572C4069860E38654A566A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -53,6 +58,11 @@
 			<true/>
 		</dict>
 		<key>A316B54C67E947D23CECD230FA5BFAEF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C76400D811EE2EEB3708E5FDBB8D8858</key>
 		<dict>
 			<key>primary</key>
 			<true/>
