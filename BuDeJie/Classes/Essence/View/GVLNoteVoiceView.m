@@ -8,6 +8,7 @@
 
 #import "GVLNoteVoiceView.h"
 #import <UIImageView+WebCache.h>
+#import "GVLSeeBigPictureController.h"
 @interface GVLNoteVoiceView ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *playCountLabel;
@@ -21,6 +22,14 @@
     [super awakeFromNib];
     self.autoresizingMask = UIViewAutoresizingNone;
     self.placeholderImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageView.userInteractionEnabled = YES;
+    [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(seeBigPicture)]];
+}
+- (void)seeBigPicture{
+    //modal出来我们定义的GVLSeeBigPictureController
+    GVLSeeBigPictureController *seeBigPicController = [[GVLSeeBigPictureController alloc] init];
+    seeBigPicController.noteMode = self.noteMode;
+    [self.window.rootViewController presentViewController:seeBigPicController animated:YES completion:nil];
 }
 - (void)setNoteMode:(GVLNoteModel *)noteMode{
     _noteMode = noteMode;

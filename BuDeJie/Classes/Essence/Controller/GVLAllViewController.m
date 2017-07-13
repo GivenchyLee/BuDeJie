@@ -139,7 +139,7 @@ static NSString * const ID = @"GVLNoteCell";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @"10";
+    parameters[@"type"] = @"1";
     parameters[@"maxtime"] = self.currentTotalNotesMaxTime;
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         //更新currentTotalNotesMaxTime
@@ -164,7 +164,7 @@ static NSString * const ID = @"GVLNoteCell";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @"10";
+    parameters[@"type"] = @"1";
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
         [responseObject writeToFile:@"/Users/givenchylee/Desktop/newData.plist" atomically:YES];
         self.currentTotalNotesMaxTime = responseObject[@"info"][@"maxtime"];

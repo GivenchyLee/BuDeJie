@@ -11,6 +11,7 @@
 #import "GVLNotePictureView.h"
 #import <SDWebImage/FLAnimatedImageView+WebCache.h>
 #import <UIImageView+WebCache.h>
+#import "GVLSeeBigPictureController.h"
 
 @interface GVLNotePictureView ()
 @property (weak, nonatomic) IBOutlet UIImageView *placeholderImageView;
@@ -24,10 +25,22 @@
 -(void)awakeFromNib{
     [super awakeFromNib];
     self.autoresizingMask = UIViewAutoresizingNone;
+    //self.imageView.userInteractionEnabled = YES;
     self.placeholderImageView.contentMode = UIViewContentModeScaleAspectFit;
     self.seeBigPicButton.titleEdgeInsets = UIEdgeInsetsMake(0, GVLMargin*0.5, 0, 0);
     self.seeBigPicButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, GVLMargin*0.5);
+    //添加手势，让手势可以传统seeBigPicButton的拦截
+    //或者addtarget直接调用seeBigPicture方法也行
+    self.seeBigPicButton.userInteractionEnabled = NO;
+    self.imageView.userInteractionEnabled = YES;
+    [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(seeBigPicture)]];
     
+}
+- (void)seeBigPicture{
+    //modal出来我们定义的GVLSeeBigPictureController
+    GVLSeeBigPictureController *seeBigPicController = [[GVLSeeBigPictureController alloc] init];
+    seeBigPicController.noteMode = self.noteMode;
+    [self.window.rootViewController presentViewController:seeBigPicController animated:YES completion:nil];
 }
 - (void)setNoteMode:(GVLNoteModel *)noteMode{
     _noteMode = noteMode;
