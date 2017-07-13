@@ -21,7 +21,7 @@
                         <constraint firstAttribute="height" constant="50" id="61V-AZ-Jvo"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d3U-oF-fi1">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d3U-oF-fi1" userLabel="中间图片" customClass="FLAnimatedImageView">
                     <rect key="frame" x="0.0" y="0.0" width="345" height="230"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common-gif" translatesAutoresizingMaskIntoConstraints="NO" id="4nz-2X-ry6">
@@ -59,7 +59,7 @@
                 <outlet property="placeholderImageView" destination="HDW-aL-CHn" id="4wV-6F-lsT"/>
                 <outlet property="seeBigPicButton" destination="IzF-kD-PJ7" id="N6n-hC-emK"/>
             </connections>
-            <point key="canvasLocation" x="33.5" y="145"/>
+            <point key="canvasLocation" x="-553" y="-56"/>
         </view>
     </objects>
     <resources>

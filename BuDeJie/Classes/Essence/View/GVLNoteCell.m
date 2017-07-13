@@ -96,7 +96,6 @@
         self.profileImageView.image = [image gvl_clipCircularImage];
     }];
     //添加自定义中间的View
-    //加载图片
     if (noteMode.type == GVLNoteTypePicture) {
         self.notePictureView.hidden = NO;
         self.noteVoiceView.hidden = YES;
@@ -118,7 +117,7 @@
         self.noteVideoView.hidden = YES;
     }
     
-    //显示最热评论内容,由于返回的数组中只有一个元素，用firstObject拿出来
+    //显示最热评论部分的内容,由于返回的数组中只有一个元素，用firstObject拿出来
     if (noteMode.top_cmt.count) {
         self.topCommentView.hidden = NO;
         NSDictionary *commentDict = [noteMode.top_cmt firstObject];
@@ -137,7 +136,6 @@
     [super layoutSubviews];
     if (self.noteMode.type == GVLNoteTypePicture) {
         self.notePictureView.frame = self.noteMode.middleContentFrame;
-
     }else if(self.noteMode.type == GVLNoteTypeVideo){
         self.noteVideoView.frame = self.noteMode.middleContentFrame;
     }else if(self.noteMode.type == GVLNoteTypeVoice){

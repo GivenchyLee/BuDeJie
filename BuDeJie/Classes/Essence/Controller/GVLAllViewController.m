@@ -8,6 +8,7 @@
 
 #import "GVLAllViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import <SDImageCache.h>
 #import <MJExtension/MJExtension.h>
 #import "GVLNoteModel.h"
 #import <SVProgressHUD/SVProgressHUD.h>
@@ -248,6 +249,8 @@ static NSString * const ID = @"GVLNoteCell";
     [self dealDragingUp];
     //下来刷新
     [self dealDragingDown];
+    //清除缓存
+    [[SDImageCache sharedImageCache] clearMemory];
     
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{

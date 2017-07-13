@@ -30,8 +30,6 @@
         if (middleContentHeight > GVLScreenH) {
             self.isBigPic = true;
             middleContentHeight = 200;
-        }else{
-            self.isBigPic = false;
         }
         self.middleContentFrame = CGRectMake(GVLMargin, _cellHeight, middleContentWidth, middleContentHeight);
         _cellHeight += middleContentHeight + GVLMargin;

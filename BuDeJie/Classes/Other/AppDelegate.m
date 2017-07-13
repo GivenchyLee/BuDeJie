@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GVLAdvertiseViewController.h"
+#import <AFNetworking.h>
 @interface AppDelegate ()
 
 @end
@@ -19,8 +20,9 @@
     // Override point for customization after application launch.
     
     self.window.rootViewController = [[GVLAdvertiseViewController alloc] init];
-    
-        return YES;
+    //监控网络只需要开启一次就可以，所以在这里开启
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    return YES;
 }
 
 
