@@ -5,7 +5,7 @@
 #App展示
 ---
 
-![BuDeJie]()
+![BuDeJie](https://github.com/GivenchyLee/BuDeJie/tree/master/GIF/BuDeJie.gif)
 
 
 #已经完成的功能
