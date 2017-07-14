@@ -28,7 +28,7 @@
     //添加ScrollView
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     [scrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(back)]];
-    scrollView.bounces = NO;
+//    scrollView.bounces = NO;
     _scrollView = scrollView;
     [self.view insertSubview:scrollView atIndex:0];
     

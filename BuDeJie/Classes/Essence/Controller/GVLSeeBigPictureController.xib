@@ -29,7 +29,7 @@
                 </button>
                 <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gid-Mh-KfZ">
                     <rect key="frame" x="305" y="607" width="60" height="30"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="BuO-V3-Rqy"/>
                         <constraint firstAttribute="height" constant="30" id="iVL-v5-asq"/>
@@ -49,7 +49,7 @@
                 <constraint firstItem="5HK-qI-C3M" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="iL0-kT-2hM"/>
                 <constraint firstItem="5HK-qI-C3M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="odX-0k-aMS"/>
             </constraints>
-            <point key="canvasLocation" x="-305" y="-33"/>
+            <point key="canvasLocation" x="-442" y="46"/>
         </view>
     </objects>
     <resources>
